@@ -4,8 +4,8 @@ import { Routes, Route } from 'react-router';
 import { HomePage } from './pages/home/HomePage';
 import { CheckoutPage } from './pages/checkout/CheckoutPage';
 import { OrdersPage } from './pages/orders/OrdersPage';
-import { TrackingPage } from './pages/TrackingPage';
-import { NotFoundPage } from './pages/NotFoundPage';
+import { TrackingPage } from './pages/tracking/TrackingPage';
+import { NotFoundPage } from './pages/notfound/NotFoundPage';
 import './App.css'
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
     }
 
     fetchAppData();
-  });
+  },[]);
 
   return (
     <Routes>
