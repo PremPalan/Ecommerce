@@ -1,17 +1,17 @@
 import { Link } from 'react-router';
-import { Header } from '../components/Header';
-import BuyAgainIcon from '../assets/images/icons/buy-again.png';
+import { Header } from '../../components/Header';
+import BuyAgainIcon from '../../assets/images/icons/buy-again.png';
 import axios from 'axios';
 import { useState, useEffect, Fragment } from 'react';
 import dayjs from 'dayjs';
-import { formatMoney } from '../utils/money';
+import { formatMoney } from '../../utils/money';
 import './OrdersPage.css';
 
 export function OrdersPage({ cart }) {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/orders')
+    axios.get('/api/orders?expand=products')
       .then((response) => {
         setOrders(response.data);
       });
@@ -51,7 +51,7 @@ export function OrdersPage({ cart }) {
                 </div>
 
                 <div className="order-details-grid">
-                  {orders.products.map((orderProduct) => {
+                  {order.products.map((orderProduct) => {
                     return (
                       <Fragment key={orderProduct.product.id}>
                         <div className="product-image-container">
